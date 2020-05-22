@@ -27,7 +27,9 @@ function App() {
       <div>
         <ul>
           {listItems.map(i => {
-            return <li>{i}</li>;
+            return <Item
+            text= {i}
+            />
           })}
         </ul>
       </div>
