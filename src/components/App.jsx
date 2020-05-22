@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { React.useState } from "react";
 
 function App() {
   const [item, setItem] = useState("");
-
+  const [listItem, setListItem] = useState("");
 
   function handleOnChange(event) {
     setItem(event.target.value);
     console.log(item);
   }
-
+  function handleOnClick() {
+    setListItem(item);
+  }
   return (
     <div className="container">
       <div className="heading">
@@ -16,13 +18,13 @@ function App() {
       </div>
       <div className="form">
         <input onChange={handleOnChange} type="text" />
-        <button type="button">
+        <button type="button" onClick={handleOnClick}>
           <span>Add</span>
         </button>
       </div>
       <div>
         <ul>
-          <li> Item </li>
+          <li> {listItem} </li>
         </ul>
       </div>
     </div>
