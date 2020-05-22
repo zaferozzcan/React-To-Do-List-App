@@ -1,15 +1,17 @@
-import React, { React.useState } from "react";
+import React, { useState } from "react";
 
 function App() {
   const [item, setItem] = useState("");
-  const [listItem, setListItem] = useState("");
+  const [listItems, setListItems] = useState([]);
 
   function handleOnChange(event) {
     setItem(event.target.value);
-    console.log(item);
+    // console.log(item);
   }
   function handleOnClick() {
-    setListItem(item);
+    setListItems(prevItem => {
+      return [...prevItem, item];
+    });
   }
   return (
     <div className="container">
@@ -24,7 +26,9 @@ function App() {
       </div>
       <div>
         <ul>
-          <li> {listItem} </li>
+          {listItems.map(i => {
+            return <li>{i}</li>;
+          })}
         </ul>
       </div>
     </div>
